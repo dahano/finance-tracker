@@ -5,7 +5,8 @@ ruby '2.4.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
-
+gem 'bitcoin_ticker', '~> 0.1.0'
+gem 'coinmarketcap', '~> 0.1.2'
 gem 'devise', '~> 4.4'
 gem 'twitter-bootstrap-rails'
 gem 'jquery-rails'
