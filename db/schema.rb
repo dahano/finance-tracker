@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_10_050120) do
+ActiveRecord::Schema.define(version: 2018_05_14_005416) do
+
+  create_table "cryptos", force: :cascade do |t|
+    t.string "bitcurrency"
+    t.string "currency"
+    t.decimal "last"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "stocks", force: :cascade do |t|
     t.string "ticker"

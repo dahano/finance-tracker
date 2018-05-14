@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bitcurrency: 
+  currency: 
+  last: 9.99
+
+two:
+  bitcurrency: 
+  currency: 
+  last: 9.99
