@@ -16,7 +16,7 @@
   <% end %>
 </div>
 <div id="crypto-lookup">
-  <%= form_tag search_crypto_path, method: :get, id: "crypto-lookup-form" do %>
+  <%= form_tag search_crypto_path, remote: true, method: :get, id: "crypto-lookup-form" do %>
     <div class='form-group row no-padding text-center col-md-12'>
       <div class="col-md-10">
         <%= text_field_tag :crypto, params[:crypto], placeholder: "Bitcurrency against USD", autofocus: true, class: 'form-control search-box input-lg' %>

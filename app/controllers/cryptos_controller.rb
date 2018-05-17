@@ -1,16 +1,14 @@
 class CryptosController < ApplicationController
+
   def search
-    if params[:crypto].present?
-      @crypto = Crypto.new_from_lookup(params[:crypto])
-      if @crypto
-        render 'users/my_portfolio'
-      else
-        flash[:danger] = 'sorry we dont support that currency'
-        redirect_to my_portfolio_url
-      end
+    if params[:crypto].blank?
+      flash.now[:danger] = 'You must enter something!'
     else
-      flash[:danger] = 'You must enter something!'
-      redirect_to my_portfolio_url
+      @crypto = Crypto.new_from_lookup(params[:crypto])
+      flash.now[:danger] = 'sorry we dont support that currency' unless @crypto
+    end
+    respond_to do |format|
+      format.js { render partial: 'users/result' }
     end
   end
 end
