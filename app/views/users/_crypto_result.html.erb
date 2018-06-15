@@ -1,0 +1,13 @@
+<% if params[:action] == 'search' %>
+  <div class="results-block">
+    <%= bootstrap_flash %>
+  </div>
+<% end %>
+<% if @crypto %>
+  <div class='well results-block'>
+    <strong>Currency:</strong> <%= @crypto.currency %>
+    <strong>Bitcurrency:</strong> <%= @crypto.bitcurrency %>
+    <strong>Last Price:</strong> <%= @crypto.last %>
+    <%= link_to 'Add to my cryptos', user_cryptos_path(user: current_user, bitcurrency: @crypto.bitcurrency), class: 'btn btn-xs btn-success', method: :post %>
+  </div>
+<% end %>
