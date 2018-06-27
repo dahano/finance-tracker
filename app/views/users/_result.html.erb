@@ -32,7 +32,13 @@
       <%= link_to 'Add to my cryptos', user_cryptos_path(user: current_user, bitcurrency: @crypto.bitcurrency), class: 'btn btn-xs btn-success', method: :post %>
     <% else %>
     <span class='label label-default'>
-      Crypto cannot be added because you have already added it
+      Crypto cannot be added because you have already added
+      <% if !current_user.under_crypto_limit? %>
+      10 stocks
+      <% end %>
+      <% if current_user.crypto_already_added?(@crypto.bitcurrency) %>
+      this crypto
+      <% end %>
     <% end %>
   </div>
 <% end %>
