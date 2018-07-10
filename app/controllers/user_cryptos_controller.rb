@@ -12,4 +12,12 @@ class UserCryptosController < ApplicationController
     flash[:success] = "#{@user_crypto.crypto.bitcurrency} currency was added to your portfolio"
     redirect_to my_portfolio_url
   end
+
+  def destroy
+    crypto = Crypto.find(params[:id])
+    @user_crypto = UserCrypto.where(user_id: current_user.id, crypto: crypto.id).first
+    @user_crypto.destroy
+    flash[:notice] = 'Crypto was successfully removed from your portfolio!'
+    redirect_to my_portfolio_url
+  end
 end
