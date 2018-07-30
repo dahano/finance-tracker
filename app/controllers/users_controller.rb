@@ -4,4 +4,8 @@ class UsersController < ApplicationController
     @user_stocks = current_user.stocks
     @user_cryptos = current_user.cryptos
   end
+
+  def my_friends
+    
+  end
 end
