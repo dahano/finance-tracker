@@ -52,6 +52,14 @@ class User < ApplicationRecord
     to_send_back
   end
 
+  def except_current_users(users)
+    users.reject { |user| user.id == self.id }
+  end
+
+  def not_friends_with?(friend_id)
+    friendships.where(friend_id: friend_id).count < 1
+  end
+
   # TODO: Fix first_name from being set to nil
   # def self.first_name_matches(param)
   #   matches('first_name', param)
